@@ -1,0 +1,21 @@
+2. servicesChecked delay DONE
+3. pages not working DONE
+4. annual not working DONE
+5. reordering IMPORT makes additional info disappear DONE
+6. if a page or a language was checked but then the service was unchecked, the page or language still remains in the total DONE
+7. increasing pages and languages doesn't work properly (total) DONE
+8. pages and languages can't be input and in center DONE
+9. move the function from AllBudgets
+
+TO IMPROVE
+pages and languages 0 has to disappear when you insert a number
+make info disappear after submitting the new_budget
+header image
+annual applied (to the budget)
+close the modal on the screen click
+email, phone and name validation
+
+three wrappers
+service_box
+create_budget
+new_budgets

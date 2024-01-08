@@ -1,0 +1,44 @@
+import { icons } from "react-icons/lib"
+
+1. reduce like this didn't work: line12
+
+ function calcBudget() {
+    setBudget((prevBudget) => {
+      const servicesPicked = props.services.filter(
+        (service) => service.isChecked
+      );
+      if (servicesPicked.length === 1) {
+        return (prevBudget = servicesPicked[0].price);
+      } else if (servicesPicked.length > 0) {
+        return (prevBudget = servicesPicked.reduce(
+(a, b) => a.price + b.price
+        ));
+      } else {
+        return (prevBudget = 0);
+      }
+    });
+  }
+
+https://stackoverflow.com/questions/64010268/javascript-reduce-throwing-error-for-more-than-two-items
+working solution: line 32
+
+function calcBudget() {
+    setBudget((prevBudget) => {
+      const servicesPicked = props.services.filter(
+        (service) => service.isChecked
+      );
+      if (servicesPicked.length === 1) {
+        return (prevBudget = servicesPicked[0].price);
+      } else if (servicesPicked.length > 0) {
+        return (prevBudget = servicesPicked.reduce(
+(a,b) => b.price + a, 0
+        ));
+      } else {
+        return (prevBudget = 0);
+      }
+    });
+  }
+
+
+  icons
+  https://www.freecodecamp.org/news/how-to-use-react-icons/
