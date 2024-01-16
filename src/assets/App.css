@@ -295,9 +295,7 @@ justify-self: center;}
   gap: 0.5rem;
   align-items: center;
 }
-.order_search > input {
-  border: none;
-}
+
 .reorder_btns {
   display: flex;
   gap: 0.5rem;
