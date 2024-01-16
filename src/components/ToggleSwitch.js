@@ -1,15 +1,13 @@
-import { useAnnualContext } from "./NewProvider"
+import { useAnnualContext } from "./NewProvider";
 export function ToggleSwitch() {
-    const { annual, annualOrMonthly, checked } = useAnnualContext();
+  const { annualOrMonthly, checked } = useAnnualContext();
 
-    return(
+  return (
     <>
-    <label className="toggle_label">
-    <input type="checkbox" 
-    checked={checked}
-    onChange={annualOrMonthly}/>
+      <label className="toggle_label">
+        <input type="checkbox" checked={checked} onChange={annualOrMonthly} />
         <span className="slider"></span>
-    </label>
+      </label>
     </>
-    )
+  );
 }

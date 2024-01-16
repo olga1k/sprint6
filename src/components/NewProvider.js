@@ -96,57 +96,7 @@ export default function NewProvider({ children }) {
     userDate: [],
     userId: "",
   });
-  const [allBudgets, setAllBudgets] = useState([
-    {
-      userName: "Tanya",
-      userPhone: "999999",
-      userEmail: "tanya@gmail.com",
-      userServices: [],
-      userTotal: 100,
-      userDate: ["2023", "12", "15"],
-    },
-
-    {
-      userName: "Cinderella",
-      userPhone: "2222222",
-      userEmail: "cind@gmail.com",
-      userServices: [],
-      userTotal: 2300,
-      userDate: ["2022", "06", "18"],
-    },
-    {
-      userName: "SnowWhite",
-      userPhone: "155511",
-      userEmail: "snow@gmail.com",
-      userServices: [],
-      userTotal: 0,
-      userDate: ["2022", "01", "15"],
-    },
-    {
-      userName: "Alice",
-      userPhone: "8888888",
-      userEmail: "alice@gmail.com",
-      userServices: [],
-      userTotal: 0,
-      userDate: ["2024", "05", "04"],
-    },
-    {
-      userName: "Mermaid",
-      userPhone: "111111",
-      userEmail: "mermaid@gmail.com",
-      userServices: [],
-      userTotal: 0,
-      userDate: ["2019", "10", "15"],
-    },
-    {
-      userName: "Aurora",
-      userPhone: "999999",
-      userEmail: "aurora@gmail.com",
-      userServices: [],
-      userTotal: 0,
-      userDate: ["2022", "06", "15"],
-    },
-  ]);
+  const [allBudgets, setAllBudgets] = useState([]);
   const [search, setSearch] = useState("");
 
   const [initialOrder, setInitialOrder] = useState([]);
@@ -238,20 +188,24 @@ export default function NewProvider({ children }) {
   const updateCurrentServicesFromURL = () => {
     // const urlSearchParams = new URLSearchParams(location.search);
     const urlSearchParams = new URLSearchParams("Web=true&pages=3");
-  
+
     console.log("urlSearchParams", urlSearchParams.entries());
     let arrayFromUrl = [];
     for (const [serviceUrl, valueServiceUrl] of urlSearchParams.entries()) {
       arrayFromUrl.push({ serviceUrl, valueServiceUrl });
-  
+
       console.log("arrayFromUrl", arrayFromUrl);
     }
-  
+
     const updatedCurrentServices = services.map((service) => ({
       ...service,
-      isChecked: arrayFromUrl.some((url) => url.serviceUrl === service.serviceName && url.valueServiceUrl === "true"),
+      isChecked: arrayFromUrl.some(
+        (url) =>
+          url.serviceUrl === service.serviceName &&
+          url.valueServiceUrl === "true"
+      ),
     }));
-  
+
     console.log("updatedCurrentServices", updatedCurrentServices);
     /*const updatedCurrentServices = services.map((service) => ({
       ...service,
@@ -262,12 +216,11 @@ export default function NewProvider({ children }) {
     // Update budget and other state variables as needed
     // calcBudget(updatedCurrentServices);
   };
-  
+
   // Effect to update currentServices based on URL parameters
   useEffect(() => {
     updateCurrentServicesFromURL();
   }, [location.search, services]);
-  
 
   //code trial end
 
